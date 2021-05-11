@@ -75,7 +75,7 @@ Note: even if you don't need sass options, you still must pass an object for the
     "@babel/preset-env"
   ],
   "plugins": [
-    ["./src/kremling-babel-plugin.js", {
+    ["module:kremling-babel-plugin", {
       "namespace": "super-custom",
       "sassOptions": {}
     }]
