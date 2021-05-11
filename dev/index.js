@@ -9,6 +9,10 @@ const styles = k`
   .test {
     text-align: right;
     background-color: ${'red' ? 'red' : 'blue'};
+    
+    .tester {
+      background-color: blue;
+    }
   }
 `;
 

@@ -5,9 +5,7 @@
   "plugins": [
     ["./src/kremling-babel-plugin.js", {
       "namespace": "super-custom",
-      "postcss": {
-        "autoprefixer": {}
-      }
+      "sassOptions": {}
     }]
   ]
 }

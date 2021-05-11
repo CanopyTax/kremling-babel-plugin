@@ -8,29 +8,45 @@ let index = 0;
 module.exports = function({ types: t }) {
   return {
     visitor: {
-      TaggedTemplateExpression(path, { opts }) {
+      TaggedTemplateExpression(path, { opts: babelOpts }) {
         let node = path.node;
 
-        const plugins = opts.postcss || {};
-        const namespace = opts.namespace || 'kremling';
-        const pluginsInit = (Object.keys(plugins)).map(key => {
-          return require(key)(plugins[key]);
-        });
+        const {
+          postcssOptions,
+          sassOptions,
+          namespace = 'kremling',
+        } = babelOpts;
 
         if (node.tag.name === 'k') {
           const strings = node.quasi.quasis;
-          const evalString = strings.map((item, i) => {
+          let evalString = strings.map((item, i) => {
             return `${item.value.raw}${node.quasi.expressions[i] ? placeholder : ''}`;
           }).join('');
 
-          const css = postcss([...pluginsInit, postcssKremlingPlugin(`k${index}`, namespace)]).process(evalString).css;
-          const pieces = css.split(placeholder);
-          const kString = `k${index}${separator}${namespace}${separator}`;
-          node.quasi.quasis = node.quasi.quasis.map((item, i) => {
-            item.value.raw = item.value.cooked = `${i === 0 ? kString : ''}${pieces[i]}`;
-            return item;
+          const plugins = postcssOptions?.plugins || {};
+          const pluginsInit = (Object.keys(plugins)).map(key => {
+            return require(key)(plugins[key]);
           });
-          index++;
+
+          if (sassOptions) {
+            const sass = require('sass');
+            const { additionalData = '', ...restOfSassOptions } = sassOptions;
+            evalString = sass.renderSync({
+              data: additionalData + evalString,
+              ...restOfSassOptions,
+            }).css.toString();
+          }
+          evalString = postcss([...pluginsInit, postcssKremlingPlugin(`k${index}`, namespace)]).process(evalString).css;
+
+          if (evalString) {
+            const pieces = evalString.split(placeholder);
+            const kString = `k${index}${separator}${namespace}${separator}`;
+            node.quasi.quasis = node.quasi.quasis.map((item, i) => {
+              item.value.raw = item.value.cooked = `${i === 0 ? kString : ''}${pieces[i]}`;
+              return item;
+            });
+            index++;
+          }
         }
       }
     },
