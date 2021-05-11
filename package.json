@@ -1,10 +1,10 @@
 {
   "name": "kremling-babel-plugin",
-  "version": "0.0.1",
+  "version": "1.0.0",
   "main": "src/kremling-babel-plugin.js",
   "license": "MIT",
   "scripts": {
-    "start": "webpack-dev-server",
+    "start": "webpack serve",
     "build": "webpack",
     "test": "jest"
   },
@@ -12,19 +12,17 @@
     "@babel/core": "^7.4.0",
     "@babel/preset-env": "^7.4.2",
     "@babel/preset-react": "^7.0.0",
-    "autoprefixer": "^9.5.1",
+    "autoprefixer": "^10.2.5",
     "babel-loader": "^8.0.5",
-    "cssnano": "^4.1.10",
-    "jest": "^24.7.1",
-    "kremling": "^1.2.5",
-    "loader-utils": "^1.2.3",
-    "precss": "^4.0.0",
-    "webpack": "^4.29.6",
-    "webpack-cli": "^3.3.0",
+    "jest": "^26.6.3",
+    "kremling": "^2.0.4",
+    "postcss": "^8.2.15",
+    "sass": "^1.32.12",
+    "webpack": "^5.37.0",
+    "webpack-cli": "^4.7.0",
     "webpack-dev-server": "^3.2.1"
   },
   "dependencies": {
-    "kremling-loader": "^1.0.2",
-    "postcss": "^7.0.14"
+    "kremling-loader": "^1.0.2"
   }
 }
