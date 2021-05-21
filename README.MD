@@ -30,10 +30,10 @@ React example:
 
 ```jsx
 import React from 'react';
-import { useScss, k } from 'kremling';
+import { useCss, k } from 'kremling';
 
 export function MyComponent() {
-  const scope = useScss(css);
+  const scope = useCss(css);
   return (
     <div {...scope} className="custom">
       Custom
