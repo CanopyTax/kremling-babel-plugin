@@ -30,7 +30,7 @@ React example:
 
 ```jsx
 import React from 'react';
-import { useScss, k } from 'kremling';
+import { useCss, k } from 'kremling';
 
 export function MyComponent() {
   const scope = useCss(css);
