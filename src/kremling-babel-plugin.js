@@ -36,7 +36,7 @@ module.exports = function({ types: t }) {
               ...restOfSassOptions,
             }).css.toString();
           }
-          evalString = postcss([...pluginsInit, postcssKremlingPlugin(`k${index}`, namespace)]).process(evalString).css;
+          evalString = postcss([...pluginsInit, postcssKremlingPlugin({ id: `k${index}`, namespace })]).process(evalString).css;
 
           if (evalString) {
             const pieces = evalString.split(placeholder);
