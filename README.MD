@@ -67,6 +67,24 @@ Options pass-through for `sass`. Required prerequisite:
 
 Note: even if you don't need sass options, you still must pass an object for the sass compiler to run.
 
+## Opt-out of scoping
+
+Opting out of scoping from within your kremling css is a nice little escape
+hatch when you need to add some global styles. Just prepend your rules using
+the `:global` pseudo class and the plugin will omit scoping and remove that
+class:
+
+```js
+const css = k`
+  :global .test {
+    background-color: red;
+  }
+`;
+
+// css output:
+// .test { background-color: red; }
+```
+
 ## .babelrc Example
 
 ```json
