@@ -4146,10 +4146,10 @@ kleur@^3.0.3:
   resolved "https://registry.yarnpkg.com/kleur/-/kleur-3.0.3.tgz#a79c9ecc86ee1ce3fa6206d1216c501f147fc07e"
   integrity sha512-eTIzlVOSUR+JxdDFepEYcBMtZ9Qqdef+rnzWdRZuMbOywu5tO2w2N7rqjoANZ5k9vywhL6Br1VRjUIgTQx4E8w==
 
-kremling-loader@2.1.1-beta.0:
-  version "2.1.1-beta.0"
-  resolved "https://registry.yarnpkg.com/kremling-loader/-/kremling-loader-2.1.1-beta.0.tgz#3530babf1266be1e2f2cf07e6ae40bd09313f396"
-  integrity sha512-cSEhtoKajzo202JFRsa3FRoAI+Jpe1x+/3OWzXd9Gf9Qha4hDntjfIGT9Zrpm054YH0FNCW6/ZyZKLmHqKCx+Q==
+kremling-loader@^2.1.1:
+  version "2.1.1"
+  resolved "https://registry.yarnpkg.com/kremling-loader/-/kremling-loader-2.1.1.tgz#adf6b008c77cb5a247ba7b3a7b586327a671e89d"
+  integrity sha512-W9ISZJ4hqIZ1M9F29TTyfQNrR8it1AxgviZoYEWQUc8F4esO2rLC9BE9m67DlQWDiShfqXFrim9zDGGMu2399g==
   dependencies:
     loader-utils "^2.0.0"
     postcss-selector-parser "^5.0.0"
